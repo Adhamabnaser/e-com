@@ -1,0 +1,82 @@
+
+.l:hover
+{
+    color: rgb(38, 201, 9) !important;
+}
+.Red:hover
+{
+    color: #b60202 !important;
+}
+.size
+{
+    width: 45px;
+    height: 40px;
+}
+.home
+{
+    /* margin-top: 0px; */
+    background-image: url('../image/Screenshot\ 2024-02-22\ 095100.png');
+    /* background-color: rgb(169, 169, 169); */
+    /* background-image: url('../image/Screenshot\ 2024-02-22\ 095100.png'); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -99!important;
+}
+/* .lightGreen
+{
+    background-color: #41635665;
+    background-size: 100% 100%;
+    height: 88vh;
+} */
+/* .zIndex
+{
+    position: absolute;
+    z-index: 99 !important;
+} */
+/* .positonOfSVG
+{
+    height: 6rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border: 10px solid #ffffff;
+    border-top-right-radius: 500%;
+    box-shadow: 1px 1px 10px 10px rgb(0, 31, 18);
+} */
+.btn
+{
+    padding: 14px ;
+    padding-right: 40px;
+    padding-left: 40px;
+    border : 0 ;
+    border-radius: 100px;
+    background-color: #1acaaa;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    -webkit-transition: all , 0.5s;
+    transition: all , 0.5s;
+    position:absolute;
+    bottom: 20%;
+    left: 40%;
+}
+.btn:hover
+{
+    background-color: rgb(255, 255, 255);
+    color: rgb(28, 207, 150);
+    box-shadow: 0px 0px 20px#1acaaa;
+    transform: scale(1.1);
+}
+.btn:active
+{
+    background-color: rgb(250, 254, 254);
+    -webkit-transition: all,0.25s;
+    transition: all,0.25s;
+    color:  #1acaaa;
+    box-shadow: 0px 0px 40px#1acaaa;
+    transform: scale(0.98);
+}

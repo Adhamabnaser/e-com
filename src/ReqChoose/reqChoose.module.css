@@ -1,0 +1,14 @@
+.hight_of_reqChoose
+{
+    height: 35rem;
+    /* background-color: rgb(124, 239, 233); */
+    background-image: url('../image/Screenshot\ 2024-02-24\ 014745.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 1px 1px 10px 10px rgb(37, 63, 62);
+}
+.bg_choosePhote
+{
+    background-color: rgba(193, 248, 255, 0.708);
+    box-shadow: 1px 1px 10px 10px rgb(9, 60, 58);
+}
