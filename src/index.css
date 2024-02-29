@@ -13,3 +13,48 @@ code {
     monospace;
 }
 
+.w-5{
+  width: 6%;
+}
+
+.w-10{
+  width: 10%;
+}
+
+.bg-nav{
+  background-color: #87B9A8;
+}
+
+.shad:hover {
+  transition: 0.5s; 
+  box-shadow: 1px 1px 10px rgb(79, 167, 79) ;
+  scale: 1.02;
+
+}
+
+.main-color {
+  color: #4FA74F;
+}
+.main-color2 {
+  color: #76C8AC;
+}
+
+.bg-main-color {
+  background-color: #4FA74F;
+}
+
+
+a , a:hover{
+  color: black !important;
+  text-decoration: none !important;
+}
+
+
+.loader {
+  height: 100px ; 
+  
+  width: 100px;  
+}
+
+
+

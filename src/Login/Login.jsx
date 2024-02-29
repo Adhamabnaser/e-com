@@ -1,11 +1,21 @@
 import { useFormik } from 'formik'
 import React, { useContext, useState } from 'react'
+import tittle from '../image/_د_____ê_é_ê-ai.png'
+import './Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import { authContext } from '../Context/authentication';
+import toast from 'react-hot-toast';
+import SvgDesgin from '../Svg/SvgDesgin';
 export default function Login() 
 {
+  const x =  (() => 
+  {
+    toast('Good Job!', {
+      icon: '👏',
+    });
+  })
   const {setToken} = useContext(authContext)
     let user = 
   {
@@ -52,10 +62,12 @@ export default function Login()
   })
 
   return<>
-            <form className='container' onSubmit={formikobj.handleSubmit}>
-
-                    {errMsg? <div className="alert alert-danger text-center">{errMsg}</div>: ''}
+            <form className='my-0' onSubmit={formikobj.handleSubmit}>
+{/* <SvgDesgin/> */}
+                    {/* {errMsg? <div className="alert alert-danger text-center">{errMsg}</div>: ''}
                     {successMsg? <div className="alert alert-success text-center">{successMsg}</div>: ''}
+                    {successMsg? toast.success(successMsg): ''}
+
                             <h2 className='mt-5 text-success text'>Login Now : </h2>
 
         
@@ -69,7 +81,7 @@ export default function Login()
 
                         
                            
-                            <div className='d-flex justify-content-end'><button type= 'submit' disabled={ formikobj.isValid === false || formikobj.dirty === false} className='btn btn-outline-success'  >
+                            <div className='d-flex justify-content-end'><button onClick={()=>{x()}} type= 'submit' disabled={ formikobj.isValid === false || formikobj.dirty === false} className='btn btn-outline-success'  >
                                 
                                 {isloading?<ThreeDots 
                                     height="25" 
@@ -81,7 +93,36 @@ export default function Login()
                                     wrapperClassName=""
                                     visible={true}/> :"Login"}
                                   </button>  
-                                </div>
+                                </div> */}
+
+
+    <div className="login-page " style={{  marginTop: '-50px' }}>
+      <div className="left-half"></div>
+      <div className="right-half">
+        <div className="login-container">
+            <div className='theFirst p-4'>
+            <img className="w-50 bg-dark" src={tittle} alt='Fresh Cart Logo'/>
+            </div>
+            <div className='theSecond'>
+          <h1 className='text-center'>Log in</h1>
+          <p>Need help?</p>
+
+          <form>
+            <label htmlFor="email">Email</label>
+            <input type="email" className='custom-input form-control' id="email" placeholder="ex: joe@email.com" />
+            <label htmlFor="password">Password</label>
+            <input type="password" className='custom-input form-control' id="password" placeholder="Enter your Password" />
+            <a href="#">Forgot password?</a>
+
+            <button type="submit">Login</button>
+          </form>
+
+            </div>
+        </div>
+      </div>
+    </div>
+
+
               </form>
 
 
@@ -89,3 +130,39 @@ export default function Login()
 }
   
 
+
+// import React from 'react';
+// import './About.css';
+// import tittle from '../../images/_د_____ê_é_ê-ai.png'
+
+// const LoginPage = () => {
+  //  return (
+  //   <div className="login-page">
+  //     <div className="left-half"></div>
+  //     <div className="right-half">
+  //       <div className="login-container">
+  //           <div className='theFirst p-4'>
+  //           <img className="w-50 bg-dark" src={tittle} alt='Fresh Cart Logo'/>
+  //           </div>
+  //           <div className='theSecond'>
+  //         <h1 className='text-center'>Log in</h1>
+  //         <p>Need help?</p>
+
+  //         <form>
+  //           <label htmlFor="email">Email</label>
+  //           <input type="email" className='custom-input form-control' id="email" placeholder="ex: joe@email.com" />
+  //           <label htmlFor="password">Password</label>
+  //           <input type="password" className='custom-input form-control' id="password" placeholder="Enter your Password" />
+  //           <a href="#">Forgot password?</a>
+
+  //           <button type="submit">Login</button>
+  //         </form>
+
+  //           </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
+// };
+
+// export default LoginPage;
