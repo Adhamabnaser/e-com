@@ -207,7 +207,7 @@
 .page_link {
   text-decoration: underline;
   margin: 0;
-  margin-left: 300px;
+  /* margin-right: 10px; */
   text-align:end!important;
   color: #747474;
   text-decoration-color: #747474;
@@ -219,6 +219,8 @@
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 9px;
   font-weight: 700;
+  text-align:end!important;
+
 }
 
 .page-link-label:hover {

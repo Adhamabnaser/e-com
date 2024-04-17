@@ -103,4 +103,7 @@
     text-decoration: underline;
   }
   
-  
+  .loader
+  {
+    height: 24px;
+  }

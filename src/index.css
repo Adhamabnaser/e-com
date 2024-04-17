@@ -13,3 +13,9 @@ code {
     monospace;
 }
 
+.shad:hover {
+  transition: 0.5s; 
+  box-shadow: 1px 1px 10px rgb(79, 167, 79) ;
+  scale: 1.02;
+}
+

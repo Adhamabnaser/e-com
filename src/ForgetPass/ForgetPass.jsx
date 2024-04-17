@@ -8,6 +8,8 @@ import { InfinitySpin } from 'react-loader-spinner'
 
 export default function ForgetPass() 
 {
+
+  const [errM , seterrM] = useState(null)
   const [isloading , setisloading] = useState(false)
   const navigate = useNavigate()
   let user = { sender : "",}
@@ -19,7 +21,6 @@ export default function ForgetPass()
         {   
             setisloading(true)
             const {data} = await axios.post('https://khdmah.online/api/forget-password',value)
-            console.log(data)
            
             if (data?.message === 'check your Email to reset your password') 
             {   
@@ -30,8 +31,8 @@ export default function ForgetPass()
         }
         catch(error)
         {
-            toast.error('Invalid Email')
-            console.log(error.message)
+            toast.error(error.response.data.message)
+            console.log(error.response.data.message)
             setisloading(false)
         }
     },
@@ -58,13 +59,20 @@ export default function ForgetPass()
             </div>
 
             <button className={design.form_submit_btn} type="submit">
-            {isloading?(<InfinitySpin
-                visible={true}
-                height="200"
-                width="200"
-                color="#ffff"
-                ariaLabel="infinity-spin-loading"
-                />) :"Send Email"}
+              {isloading?
+              <div className={design.loader}>    
+                <span>
+                  <InfinitySpin
+                    visible={true}
+                    className="spinner"
+                    height="200"
+                    width="200"
+                    color="#ffff"
+                    ariaLabel="infinity-spin-loading"
+                    />
+                </span>
+              </div>
+                    :"Send Email"}
             </button>
           </form>
 

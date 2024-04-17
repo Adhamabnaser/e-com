@@ -68,13 +68,18 @@ export default function ResetPass()
             </div>
 
             <button className={design.form_submit_btn} type="submit">
-            {isloading?(<InfinitySpin
-                visible={true}
-                height="2"
-                width="200"
-                color="#ffff"
-                ariaLabel="infinity-spin-loading"
-                />) :'Send Email'}
+            {isloading?
+            <div className={design.loader}>
+              <InfinitySpin
+              visible={true}
+              height="2"
+              width="200"
+              color="#ffff"
+              ariaLabel="infinity-spin-loading"
+              />
+
+            </div>
+                 :'Send Email'}
               
               </button>
           </form>

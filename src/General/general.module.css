@@ -1,0 +1,51 @@
+.bgMainColor {
+    background-color: #0B1C4D;
+  }
+  
+  .customInput,textarea{
+    text-align: end;
+    color: white !important;
+  
+    
+  }
+  .customInput::placeholder ,textarea::placeholder{
+   color: white;
+    
+  }
+  
+  .customInput:hover , textarea:hover {
+    border-color: #1AEAB6;
+  }
+  
+  
+  .customInput:focus , textarea:focus {
+    border-color: #1AEAB6; 
+    box-shadow: 0 0 0 0.25rem rgba(26, 234, 182, 0.25); 
+    
+  }
+  
+  textarea:hover {
+    border-color: #1AEAB6;
+  }
+  
+  
+  a , a:hover{
+    text-align: end;
+    text-decoration: none !important;
+  }
+  
+  h2,h6 {
+    text-align: end;
+  }
+  
+  
+  .footerImage {
+    width: 50%;
+    position: relative;
+    top: 10% !important ; 
+    left: 30% !important;
+  }
+
+
+
+  

@@ -14,6 +14,12 @@ import ProtectedRoute from './Test/Test'
 import Home from './General/General'
 import ReqChoose from './ReqChoose/ReqChoose'
 import RegCompany from './RegCompany/RegCompany'
+import Company from './CompanyHome/Company'
+import Recruitment from './CompanyHome/Recruitment'
+import ShowCompany from './CompanyHome/ShowCompany'
+import Service from './CompanyHome/Service'
+import SubCompanyGeneral from './CompanyHome/SubCompanyGeneral'
+import SubCompanyRecruitment from './CompanyHome/SubCompanyRecruitment'
 import LoginUser from './LoginUser/LoginUser'
 import { Toaster } from 'react-hot-toast'
 import { Offline } from 'react-detect-offline';
@@ -23,6 +29,12 @@ import ForgetPass from './ForgetPass/ForgetPass'
 import UserHome from './UserHome/UserHome'
 import CompanyHome from './CompanyHome/CompanyHome'
 import ResetPass from './ForgetPass/ResetPass'
+import Cart from './Cart/Cart'
+import Setting from './Setting/Setting'
+import ChangePass from './Setting/ChangePass'
+import Curr from './Setting/Curr'
+import SendUs from './Setting/SendUs'
+import AboutUs from './Setting/AboutUs'
 
 // import Register from './RegCompany/Reg';
 export default function App() 
@@ -45,7 +57,20 @@ export default function App()
         {path : 'cat',element : <Cat/> },
         {path : '/forgetPass',element : <ForgetPass/> },
         {path : '/resetpass',element : <ResetPass/> },
-        {path : 'ConfirmEmail',element : <ConfirmEmail/> },
+        {path : '/ConfirmEmail',element : <ConfirmEmail/> },
+        {path : '/cart',element : <Cart/> },
+        {path : 'Company',element : <Company/> },
+        {path : 'Recruitment',element : <Recruitment/> },
+        {path : 'ShowCompany',element : <ShowCompany/> },
+        {path : 'Service',element : <Service/> },
+        {path:'subCompany/Recruitment',element: < SubCompanyRecruitment /> },
+        {path:'subCompany/General',element: < SubCompanyGeneral /> },
+        {path : '/setting',element : <Setting/>},
+        {path : '/changepass',element : <ChangePass/>},
+        {path : '/curr',element : <Curr/>},
+        {path : '/Sendus',element : <SendUs/>},
+        {path : '/aboutus',element : <AboutUs/>},
+    
         
         {path : '*',element : <Notfound/>},
       ]

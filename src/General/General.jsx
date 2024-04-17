@@ -1,7 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+
+import React, { useContext, useEffect ,useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import {  Element } from 'react-scroll';
 import { authContext } from '../Context/authentication'
 import desgin from '../Navbar/nav.module.css'
+import './General.css'
 import pic from './../image/001 (1).png'
 import pic1 from './../image/004.png'
 import pic2 from './../image/Screenshot 2024-03-02 050453.png'
@@ -12,6 +15,11 @@ import pic6 from './../image/download.png'
 import pic7 from './../image/mastercard.png'
 import pic8 from './../image/a700e6eae0.png'
 import logo from '../image/color.png'
+import logo1 from '../image/White.png'
+import android from '../image/WhatsApp Image 2024-03-05 at 17.46.38_611baa94.jpg'
+import ios from '../image/WhatsApp Image 2024-03-05 at 17.47.00_893d933a.jpg'
+import desgin2 from './general.module.css'
+
 import $ from 'jquery'
 
 // let boxMessage = document.getElementById('boxMessage')
@@ -23,6 +31,35 @@ import $ from 'jquery'
 
 export default function Home() 
 {
+   const [isVisibleFirst, setIsVisibleFirst] = useState(true);
+   const [isVisibleSecond, setIsVisibleSecond] = useState(false);
+ 
+   
+
+   const [imgClass, setImgClass] = useState(desgin.imgMobile1);
+
+   useEffect(() => {
+
+      const timeout = setTimeout(() => {
+         setImgClass(desgin.imgMobile2);
+       }, 550); 
+   
+      const firstTimer = setTimeout(() => {
+         setIsVisibleFirst(false);
+         setIsVisibleSecond(true);
+       }, 500);
+   
+       
+  
+      return () => {
+      
+         clearTimeout(timeout);
+         clearTimeout(firstTimer);
+      };
+
+      
+    }, []);
+
    $(() => {
       $('#buttON').click(() => {
          $('#boxMessage').removeClass('d-none')
@@ -48,7 +85,18 @@ export default function Home()
 
  //usless comment
  return<>
-      	<div id='boxMessage' className={desgin.container + ' d-none'}>
+{isVisibleFirst && (
+   <div className='first mt-5 fullscreenStyle' style={fullscreenStyle}>
+     <img className='mt-5 imageStyle' src={logo} alt="FullScreenImage" style={imageStyle} />
+   </div>
+ )}
+
+{isVisibleSecond && (
+
+ <section>
+
+ 
+<div id='boxMessage' className={desgin.container + ' d-none'}>
       <div className={desgin.nav_bar}>
       	<p className='pt-2 ps-2'>Chat</p>
         <div className={desgin.close}>
@@ -89,7 +137,7 @@ export default function Home()
           <img className={`${desgin.size}`} src={logo} alt='Fresh Cart Logo'/>
       </Link>
       </>:<>
-      <a className="navbar-brand fw-bold fs-4 text-success" to="/#home">
+      <a className="navbar-brand fw-bold fs-4 text-success" href="#">
           <img className={`${desgin.size}`} src={logo} alt='Fresh Cart Logo'/>
       </a>
       </>}
@@ -135,7 +183,7 @@ export default function Home()
                   <a className={`${desgin.l} nav-link active`}  href="#aboutUs"> من نحن  </a>
                 </li>
                 <li className="nav-item">
-                  <a className={`${desgin.l} nav-link active`}  href="#home"> الرئيسية</a>
+                  <a className={`${desgin.l} nav-link active`}  href="#"> الرئيسية</a>
                 </li> 
               </>
             }
@@ -154,7 +202,7 @@ export default function Home()
                <img src={pic} className={ desgin.imgMobile+" rounded-5 "} alt="mobile" />
             </div>
             <div className='w-50 d-flex'>
-               <img src={pic1} className={ desgin.imgMobile1+" rounded-5 "} alt="mobile" />
+               <img src={pic1} className={ ` ${imgClass} rounded-5 `} alt="mobile" />
             </div>
          </div>
          <div className='w-50'>
@@ -162,26 +210,24 @@ export default function Home()
             <p className={desgin.font_style + ' fs-5 text-white text-center pb-4' }>التوظيف العمالة باسلوب جديد</p>
             <div className={'d-flex gap-3 justify-content-center' }>
                <div>
-                  <button >GooglePlay</button>
+                  <a href="https://play.google.com/store/apps/details?id=com.dropidea.khedma"><img className=' border rounded-3 ' style={{width:"200px"}} src={android} alt="googleplay" /></a> 
                </div>
                <div>
-                  <button>AppStore</button>
-               </div>
+               <img className='border rounded-3 ' style={{width:"200px"}} src={ios} alt="Appstore" /></div>
             </div>
          </div>
-         
       </div>
     </header>
          {/*/////////////////////////////////////////////////////////////////////*/}
     <div className='mt-5 pt-5 container' id='aboutUs'>
       <div >
-         <div className='row'>
+         <div className=' row' >
             <div className='col-lg-6 col-sm-12'>
-               <div className='bg-info'>
+               <div className=''>
                   <h2 className={desgin.right}>نبذة عن الشركة</h2>
                   <p className={desgin.right}>تطبيق "خدمة" للخدمات العامة ولاستقدام وتشغيل العمالة بكافة انواعها هو احد مشاريع شركة تسهيلات للدعاية وتسويق (ش.ش.و) ومقرها في منطقة القرين دولة الكويت ومرخصة تحت سجل تجارى رقم 481216 التي تتشكل من جهات وطنية تهتم بالصالح العام وتحقق نقلة نوعية في هذا النوع من الأعمال.</p>
-                  <div className='d-flex flex-column '>
-                     <p className={desgin.right}>نحمل رؤية ورسالة وطنية وإنسانية في إدارة سوق العمل</p>
+                  <div className='d-flex flex-column text-decoration-none'>
+                     <p className={desgin.right}> نحمل رؤية ورسالة وطنية وإنسانية في إدارة سوق العمل </p>
                      <p className={desgin.right}> نتولى كل الإجراءات بدءًا من دولة المصدر إلى الفحوصات والإقامة في دولة الكويت وذلك بأسعار تنافسية ورمزية وبأعلى قدر من الكفاءة وسرعة الإنجاز.</p>
                      <p className={desgin.right}>نعمل على تأهيل العمالة سواء كانت العمالة في المجال الطبي او المنزلي او التنظيف او اي مجال اخر المرشحة للعمل بالبلاد وإكسابها قدرًا من المعلومات عن ثقافة وتقاليد وعادات مجتمعنا والأسر الكويتية من خلال دورات تأهيلية في بلدها.</p>
                      <p className={desgin.right}>نضمن سلامة العمالة المستقدمة وخلوها من الأمراض قبل قدومها للبلاد وذلك بفحصها في المراكز المعتمدة من وزارة الصحة في الدولة المصدرة.</p>
@@ -196,12 +242,12 @@ export default function Home()
          </div>
          </div>
          {/*---------------------------------------------------------------------*/}
-         <div className='row mt-5 py-5'>
+         <div className=' row  mt-5 py-5' >
                <div className='col-lg-6 col-sm-12'>
                  <img className={desgin.pic345} src={pic3} alt="num"/>
                </div>
             <div className='col-lg-6 col-sm-12'>
-               <div className='bg-info'>
+               <div className=''>
                   <h2 className={desgin.left}>الرسالة</h2>
                   <p className={desgin.right}>تطبيق "خدمة" للخدمات العامة ولاستقدام وتشغيل العمالة بكافة انواعها هو احد مشاريع شركة تسهيلات للدعاية وتسويق (ش.ش.و) ومقرها في منطقة القرين دولة الكويت ومرخصة تحت سجل تجارى رقم 481216 التي تتشكل من جهات وطنية تهتم بالصالح العام وتحقق نقلة نوعية في هذا النوع من الأعمال.</p>
                   <div className='d-flex flex-column '>
@@ -211,9 +257,9 @@ export default function Home()
             </div>
          </div>
          {/*/////////////////////////////////////////////////////////////////////*/}
-         <div className='row mt-5'>
+         <div className=' row  mt-5 py-5' >
             <div className='col-lg-6 col-sm-12'>
-               <div className='bg-info'>
+               <div className=''>
                   <h2 className={desgin.right}>الرؤية</h2>
                   <div className='d-flex flex-column '>
                       <p className={desgin.left}>تطبيق خدمة للخدمات العامة يعمل جاهدا ليكون الرائد في دولة الكويت في مجال خدماته. نحن نهدف إلى أن نكون الخيار الأول لكم في رحلة البحث عن العمالة في كافة المجالات المناسبة والماهرة، حيث نقدم أعلى مستويات الكفاءة والاحترافية لتلبية احتياجاتكم بشكل شامل وموثوق.</p>                      </div>
@@ -255,7 +301,7 @@ export default function Home()
                <div className='col-lg-6' id='contact'>
                   <h3 className={desgin.right1 + ' fw-bold'}>اهدافنا</h3>
                   <div className='d-flex flex-column '>
-                     <p className={desgin.right1}>نحن نسعى جاهدين لتحقيق العديد من الأهداف الهامة والضرورية في مجال خدمتنا:</p>
+                     <p className={desgin.right1}>نحن نسعى جاهدين لتحقيق العديد من الأهداف الهامة والضرورية في مجال خدمتنا</p>
                      <p className={desgin.right1}>توفير عمالة طبية او منزلية مدربة ومؤهلة او في اي مجال اخر يتطلبة السوق الكويتي .</p>
                      <p className={desgin.right1}>كسر الممارسات الاحتكارية والمبالغة في رسوم الاستقدام</p>
                      <p className={desgin.right1}>تصويب مسار سوق استقدام وتشغيل العمالة وإعادة الثقة إليه</p>
@@ -271,8 +317,73 @@ export default function Home()
          </div>
         </div>
          {/*/////////////////////////////////////////////////////////////////////*/}
-    <footer>
+         <footer className={ desgin2.bgMainColor +' text-white pb-2 mb-0 '}  >
+          <div className='container px-5'>
+            <div className='row'>
+               {/*/////////////////////////////////////////////////////////////////////*/}
+              <div className='col-lg-4 my-3'>
+                <h2 className='py-2 text-white'> تواصل معنا</h2>
+                <input type="text" required placeholder='أسمك' className=' customInput form-control bg-transparent my-2  p-2 '/>
+                <input type="email" required placeholder='البريد الالكترونى' className=' customInput form-control bg-transparent my-2  p-2 '/>
+                <input type="text" required placeholder='الهاتف' className=' customInput form-control bg-transparent my-2 p-2 '/>
+                <textarea  className="border border-1 w-100 p-2 bg-transparent" required id=""  rows="5" placeholder="يهمنا سماع رأيك"></textarea>
+              </div >
+               {/*/////////////////////////////////////////////////////////////////////*/}
+              <div  className='col-lg-4 my-3'>
+                <img className={desgin2.footerImage} src={logo1} alt="" />
+              </div>
+               {/*/////////////////////////////////////////////////////////////////////*/}
+              <div  className='col-lg-4 my-3'>
+               <h2 className='py-2 text-white'>حمل التطبيق الان</h2>
+               <div className={'d-flex gap-3 justify-content-center py-2' }>
+               <div className='d-flex gap-2'>
+                  {/* <button >GooglePlay</button> */}
+                  <a href="https://play.google.com/store/apps/details?id=com.khedmah"><img className='border rounded-3 ' style={{width:"170px"}} src={android} alt="googleplay" /></a>
+                  <img className='border rounded-3  ' style={{width:"170px"}} src={ios} alt="Appstore" />
+               </div>
+               <div>
+               {/* <img className=' w-50' src={ios} alt="Appstore" /> */}
+               </div>
+            </div>
+            <div>
+              <h2 className='py-2'>روابط مهمة</h2>
+              <hr />
+              <h6 className='py-1'><a className='text-white  py-1'  href="https://www.khedmah.site/terms-of-use">شروط الاستخدام </a></h6>
+              <h6 className='py-1'><a className='text-white py-1' href="https://www.khedmah.site/privacy-terms"> شروط الخصوصية </a></h6>
+              <h6 className='py-1'><a  className='text-white  py-1'href="https://www.khedmah.site/cookie-terms"> شروط الكوكيز </a></h6>
+              <h6 className='py-1'><a  className='text-white  py-1'  href=""> من نحن </a></h6>
+              <h6 className='py-1'><a className='text-white py-1'   href="https://www.khedmah.site/privacy-terms"> المعلومات التي نجمعها </a></h6>
+            </div>
+              </div>
+                 {/*/////////////////////////////////////////////////////////////////////*/}
+            </div>
+              {/* <p className='p-2'>Footer</p>
+              <p className='pb-0'>Copyright 2022</p> */}
+
+          </div>
+        </footer>
+        </section>
       
-    </footer>
+      	)}
          </>
 }
+
+
+const fullscreenStyle = {
+   position: 'fixed',
+   top: '10%',
+   left: 0,
+   width: '100%',
+   height: '70%',
+   backgroundColor: 'white',
+   display: 'flex',
+   justifyContent: 'center',
+   alignItems: 'center',
+ };
+ 
+ const imageStyle = {
+   maxWidth: '100%',
+   maxHeight: '100%',
+   objectFit: 'cover',
+ };
+ 
